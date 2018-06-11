@@ -1,0 +1,27 @@
+{% extends 'ManagerApp/layout.html' %}
+
+{% block content %}
+{% block success %}
+{% endblock %}
+<h3 id="main_header">Add New Subscription Plan</h3> <br>
+<div class="container" style="width: 800px;">
+    <form class="form-signin" method="POST">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">Please Specify the Details</h2> <br>
+        <div class="form-group">
+            <h6>Plan Name:</h6>
+                {{ form.name }}
+        </div>
+        <div class="form-group">
+            <h6>Planned Budget:</h6>
+                {{ form.planned_budget }}
+        </div>
+        <div class="form-group">
+            <h6>Planned Amout of Subscriptions:</h6>
+                {{ form.planned_amount }}
+        </div> <br>
+        <button class="btn btn-lg btn-primary btn-block float-center" type="submit">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

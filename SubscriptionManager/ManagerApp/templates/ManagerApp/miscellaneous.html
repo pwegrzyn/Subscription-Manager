@@ -1,0 +1,19 @@
+{% extends 'ManagerApp/layout.html' %}
+
+{% block content %}
+{% block success %}
+{% endblock %}
+<h3 id="main_header">Miscellaneous</h3> <br>
+<div class="container" style="width: 800px;">
+    <br><a href="{% url 'miscellaneous_success_all' %}"><button type="button" class="btn btn-warning">
+        RESET ALL DATA
+    </button></a> <br><br>
+    <a href="{% url 'miscellaneous_success_subs' %}"><button type="button" class="btn btn-warning">
+        RESET ONLY SUBSCRIPTIONS
+    </button></a> <br><br>
+    <a href="{% url 'miscellaneous_success_stats' %}"><button type="button" class="btn btn-warning">
+        RESET ONLY STATISTICS
+    </button></a>
+</div>
+
+{% endblock %}

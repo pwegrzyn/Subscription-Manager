@@ -1,0 +1,10 @@
+{% extends 'ManagerApp/add_plan.html' %}
+
+{% block success %}
+<div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Error!</h4>
+    <p>The details you have provided were invalid</p>
+    <hr>
+    <p class="mb-0">Please check them and try again</p>
+</div>
+{% endblock %}

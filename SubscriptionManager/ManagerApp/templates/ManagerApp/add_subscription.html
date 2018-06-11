@@ -1,0 +1,51 @@
+{% extends 'ManagerApp/layout.html' %}
+
+{% block content %}
+{% block success %}
+{% endblock %}
+<h3 id="main_header">Add New Subscription</h3> <br>
+<div class="container" style="width: 800px;">
+    <form class="form-signin" method="POST">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">Please Specify the Details</h2> <br>
+        <div class="form-group">
+            <h6>Service Name:</h6>
+                {{ form.service_name }}
+        </div>
+        <div class="form-group">
+            <h6>Price:</h6>
+                {{ form.price }}
+        </div>
+        <div class="form-group">
+            <h6>Duration:</h6>
+                {{ form.duration }}
+        </div>
+        <div class="form-group">
+            <h6>Start Time (YYYY-MM-DD HH:MM:SS):</h6>
+                {{ form.start_time }}
+        </div>
+        <div class="form-group">
+            <h6>Personal Rating (0 - 100 number used for recommendations):</h6>
+                {{ form.personal_rating }}
+        </div>
+        <div class="form-group">
+            <h6>Link:</h6>
+                {{ form.link }}
+        </div>
+        <div class="form-group">
+            <h6>Notes: </h6>
+                {{ form.notes }}
+        </div>
+        <div class="form-group">
+            <h6>Tags -- White-space-separated list of tags describing this service (used for smart recommendations): </h6>
+                {{ form.tags }}
+        </div>
+        <div class="form-group">
+            <h6>Subscription Plan (leave blank if no plan is to be associated with this subscription):</h6>
+                {{ form.plan }}
+        </div> <br>
+        <button class="btn btn-lg btn-primary btn-block float-center" type="submit">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

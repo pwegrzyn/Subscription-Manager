@@ -1,0 +1,30 @@
+{% extends 'ManagerApp/layout.html' %}
+
+{% block content %}
+
+<h3 id="main_header">Previous Subscriptions History</h3>
+<div class="starter-template">
+    {% if subscriptions %}
+        Green  - Currently Active<br>
+        Yellow - Cancelled<br>
+        White  - Ended or Yet to Come <br><br>
+        <ul class="list-group list-group-flush">
+            {% for sub in subscriptions %}
+                {% if sub.status and not sub.was_cancelled %}
+                    <li class="list-group-item list-group-item-action list-group-item-success" style="width: 800px; align-self: center">
+                        <a href="{% url 'subscription' sub.id %}">{{sub.service_name}} - {{sub.start_time}}</a></li>
+                {% elif sub.was_cancelled %}
+                    <li class="list-group-item list-group-item-action list-group-item-warning" style="width: 800px; align-self: center">
+                        <a href="{% url 'subscription' sub.id %}">{{sub.service_name}} - {{sub.start_time}}</a></li>
+                {% else %}
+                    <li class="list-group-item list-group-item-action list-group-item-light" style="width: 800px; align-self: center">
+                        <a href="{% url 'subscription' sub.id %}">{{sub.service_name}} - {{sub.start_time}}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h5 >Your History Is Empty</h5>
+    {% endif %}
+</div>
+
+{% endblock %}

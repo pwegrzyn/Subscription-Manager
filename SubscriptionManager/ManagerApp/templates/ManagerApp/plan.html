@@ -1,0 +1,60 @@
+{% extends 'ManagerApp/layout.html' %}
+
+{% block content %}
+
+<h3 id="main_header">Plan Details</h3> <br>
+<div class="container" style="width: 700px;">
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Plan Name:</b>
+        </div>
+        <div class="col">
+            {{plan.name}}
+        </div>
+    </div> <br>
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Planned Budget:</b>
+        </div>
+        <div class="col">
+            {{plan.planned_budget}}
+        </div>
+    </div> <br>
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Planned Amount ouf Subscriptions:</b>
+        </div>
+        <div class="col">
+            {{plan.planned_amount}}
+        </div>
+    </div> <br>
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Current Amount of Subscriptions:</b>
+        </div>
+        <div class="col">
+            {{subs_len}}
+        </div>
+    </div> <br>
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Current Spending on the Plan:</b>
+        </div>
+        <div class="col">
+            {{totally_spent}}
+        </div>
+    </div> <br>
+    <h5>Subcriptions in Plan:</h5>
+    {% if subs %}
+        <ul class="list-group">
+            {% for sub in subs %}
+                <li class="list-group-item list-group-item-action" style="width: 600px; align-self: center">
+                    <a href="{% url 'subscription' sub.id %}">{{sub.service_name}} - {{sub.start_time}}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        This plan doesn't have any subscriptions yet
+    {% endif %}
+</div>
+
+{% endblock %}

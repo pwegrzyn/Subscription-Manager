@@ -1,0 +1,63 @@
+{% extends 'ManagerApp/layout.html' %}
+
+{% block content %}
+
+<h3 id="main_header">Summary</h3> <br>
+<div class="container" style="width: 700px;">
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Active Subscriptions:</b>
+        </div>
+        <div class="col">
+            {{active_subs_len}}
+        </div>
+    </div> <br>
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Active Subscriptions Spending:</b>
+        </div>
+        <div class="col">
+            ${{active_worth}}
+        </div>
+    </div> <br>
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>All-time Subscriptions Spending:</b>
+        </div>
+        <div class="col">
+            ${{all_worth}}
+        </div>
+    </div> <br>
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Most Popular Category:</b>
+        </div>
+        <div class="col">
+            {{most_pop_cat}}
+        </div>
+    </div> <br>
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Highest Rated Subscription:</b>
+        </div>
+        <div class="col">
+            {{highest_rated_sub}}
+        </div>
+    </div> <br>
+    <h5>Active Subscriptions:</h5>
+    {% if active_subs %}
+        <ul class="list-group">
+            {% for sub in active_subs %}
+                <li class="list-group-item list-group-item-action" style="width: 670px; align-self: center">
+                    <a href="{% url 'subscription' sub.id %}">{{sub.service_name}} - {{sub.start_time}}</a></li>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="{{ sub.progress }}" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            {% endfor %}
+        </ul>
+    {% else %}
+        You don't have any active subscriptions at this time!
+    {% endif %}
+</div>
+
+{% endblock %}

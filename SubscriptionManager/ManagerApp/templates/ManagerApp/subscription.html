@@ -1,0 +1,75 @@
+{% extends 'ManagerApp/layout.html' %}
+
+{% block content %}
+
+<h3 id="main_header">Subscription Details</h3> <br>
+<div class="container" style="width: 700px;">
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Service Name:</b>
+        </div>
+        <div class="col">
+            {{subscription.service_name}}
+        </div>
+    </div> <br>
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Price:</b>
+        </div>
+        <div class="col">
+            ${{subscription.price}}
+        </div>
+    </div> <br>
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Personal Rating:</b>
+        </div>
+        <div class="col">
+            {{subscription.personal_rating}}%
+        </div>
+    </div> <br>
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Duration:</b>
+        </div>
+        <div class="col">
+            {{subscription.duration}} Days
+        </div>
+    </div> <br>
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Start Time:</b>
+        </div>
+        <div class="col">
+            {{subscription.start_time}}
+        </div>
+    </div> <br>
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Current Status:</b>
+        </div>
+        <div class="col">
+            {% if subscription.status and not subscription.was_cancelled %}
+                Active
+            {% else %}
+                Inactive
+            {% endif %}
+        </div>
+    </div> <br>
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <b>Link:</b>
+        </div>
+        <div class="col">
+            <a href="{{subscription.link}}">{{subscription.link}}</a>
+        </div>
+    </div> <br>
+    <div class="row justify-content-md-center">
+        <b>Notes:</b>
+    </div>
+    <div class="row justify-content-md-center">
+        {{subscription.notes}}
+    </div>
+</div>
+
+{% endblock %}

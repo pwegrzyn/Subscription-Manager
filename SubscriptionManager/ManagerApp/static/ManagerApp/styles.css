@@ -1,0 +1,27 @@
+body {
+	background: rgba(169, 193, 221, 0.89);
+	font-family: 'Raleway', 'Futura', sans-serif;
+}
+#wrapper {
+    margin-top: 100px;
+    font-size: 17px;
+    text-align: center;
+    padding-top: 0;
+}
+#main_header {
+    font-size: 30px;
+}
+h6 {
+    color:grey;
+    font-size: 25;
+    text-align: left;
+}
+h5 {
+    color:grey;
+    font-size: 25;
+    text-align: center;
+}
+footer {
+	margin-top: 80px;
+	color: white;
+}

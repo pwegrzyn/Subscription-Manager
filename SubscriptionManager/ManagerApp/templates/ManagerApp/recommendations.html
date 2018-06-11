@@ -1,0 +1,20 @@
+{% extends 'ManagerApp/layout.html' %}
+
+{% block content %}
+
+<h3 id="main_header">Recommendations</h3> <br>
+<div class="container" style="width: 800px;">
+    {% if subs_len > 5 %}
+        <b>Based on Your preferences I can suggest...</b> <br><br>
+        <ul>
+            {% for sug in suggestions %}
+                {{sug}}<br><br>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h5 >I need more data to make valuable suggestions...</h5>
+        <h5>Please consider adding more subscriptions and/or plans</h5>
+    {% endif %}
+</div>
+
+{% endblock %}

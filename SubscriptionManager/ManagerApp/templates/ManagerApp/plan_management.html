@@ -1,0 +1,22 @@
+{% extends 'ManagerApp/layout.html' %}
+
+{% block content %}
+
+<h3 id="main_header">Plan Management</h3> <br>
+<div class="container" style="width: 800px;">
+    {% if plans %}
+        <ul class="list-group">
+            {% for plan in plans %}
+                <a href="{% url 'plan' plan.id %}" class="list-group-item list-group-item-action" style="width: 800px; align-self: center">{{plan.name}}</a>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h5 >You don't have any plans yet</h5>
+    {% endif %}
+    <br>
+    <a href="{% url 'add_plan' %}"><button type="button" class="btn btn-warning">
+        ADD NEW PLAN
+    </button></a> <br><br>
+</div>
+
+{% endblock %}
